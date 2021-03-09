@@ -6,18 +6,19 @@
         locals: {
           f: nested_form,
           field: field,
+          new_record: false,
         },
       ) %>
   <% end %>
 
   <div>
     <%= link_to_add_association(
-      I18n.t("administrate.fields.nested_has_many.add", resource: field.associated_class_name.titleize),
+      I18n.t("administrate.fields.nested_has_many.add", resource: ''),
       f,
       field.association_name,
       class: 'button',
       partial: "fields/nested_has_many/fields",
-      render_options: { locals: { field: field } },
+      render_options: { locals: { field: field, new_record: true } },
     ) %>
   </div>
 </fieldset>
